@@ -88,7 +88,7 @@ function Proudctedroute({children}){
   const handleSendOtp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://bookmyshow-backend.vercel.app/reset-password', {
+      const response = await fetch('https://ticketbooking-backend-peach.vercel.app/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -132,7 +132,7 @@ function Proudctedroute({children}){
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://bookmyshow-backend.vercel.app/update-password', {
+      const response = await fetch('https://ticketbooking-backend-peach.vercel.app/update-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp, password }),
@@ -195,7 +195,7 @@ function Login() {
     // validationSchema: formValidationSchema,
     onSubmit: async (values) => {
       console.log("submit");
-      const data = await fetch("https://bookmyshow-backend.vercel.app/users/login", {
+      const data = await fetch("https://ticketbooking-backend-peach.vercel.app/users/login", {
         method: "POST",
         headers: {
           "content-type": "application/json"
@@ -275,14 +275,14 @@ function Signin() {
   const adddata = (newdata) => {
     console.log(newdata);
 
-    fetch("https://bookmyshow-backend.vercel.app/users/signup", {
+    fetch("https://ticketbooking-backend-peach.vercel.app/users/signup", {
       method: "POST",
       body: JSON.stringify(newdata),
       headers: {
         "content-type": "application/json"
       }
     });
-    navigate("/movies");
+    navigate("/login");
   };
   return (
     <div className="login-card">

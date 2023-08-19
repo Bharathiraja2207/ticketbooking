@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from 'react'
 // import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -107,7 +108,7 @@ function Seat({setSelectedItems,selectedItems,setemail,email}) {
             // Handler function to handle success/failure response
             try{
               if(email&&selectedItems){
-              fetch('http://localhost:27023/update-items', {
+              fetch('https://ticketbooking-backend-peach.vercel.app/all/update-items', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -167,7 +168,7 @@ function Seat({setSelectedItems,selectedItems,setemail,email}) {
     };
     const [seat, setseat] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:27023/allticket")
+      fetch("https://ticketbooking-backend-peach.vercel.app/all/allticket")
         .then((data) => data.json())
         .then((mvs) => setseat(mvs));
     }, []);
@@ -175,7 +176,7 @@ function Seat({setSelectedItems,selectedItems,setemail,email}) {
     return (
         <div>
       <form onSubmit={handleSubmit}>
-      <input className='email' type='email' placeholder='email'onChange = {handleChange} required></input>
+      <TextField className='email' type='email' placeholder='email'onChange = {handleChange} required></TextField>
       <br></br>
       <br></br>
         <div className='arrange'>
@@ -203,7 +204,7 @@ function Seat({setSelectedItems,selectedItems,setemail,email}) {
           <input type="checkbox" value="Item 4" onChange={handleCheckboxChange} />
           Item 8
         </label> */}
-        <button type="submit">Update items</button>
+        <Button type="submit">Update items</Button>
       </form>
       {message && <p>{message}</p>}
      

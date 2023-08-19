@@ -22,7 +22,7 @@ export function AddMovies() {
     }
   });
   const addMovies = (values) => {
-    fetch("https://bookmyshow-backend.vercel.app/moviesid", {
+    fetch("https://ticketbooking-backend-peach.vercel.app/moviesid", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
