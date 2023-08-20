@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 // import { Home } from './Home';
+import { Seats2 } from './seats2';
 import { Seats } from './Seats';
 import { AddTheatre } from './AddTheatre';
 import { AddMovies } from './AddMovies';
@@ -58,6 +59,7 @@ export default function App() {
         <Route path="/forget-password" element={<Sendotp />} />
         <Route path="/verify" element={<Verifyotp />} />
         <Route path="/seats" element={<Proudctedroute><Seats /></Proudctedroute>} />
+        <Route path="/seats2" element={<Proudctedroute><Seats2 /></Proudctedroute>} />
         <Route path="/showtime" element={<Proudctedroute><Theater/></Proudctedroute>} />
         <Route path="/movies" element={<Proudctedroute><MovieList movieList={movieList} setMovieList={setMovieList} /></Proudctedroute>} />
         <Route path="/movies/:id" element={<Proudctedroute><MovieDetails movieList={movieList} /></Proudctedroute>} />
@@ -216,9 +218,9 @@ function Login() {
     }
   });
   return (
-    <div className="login-card">
+    <div className="login_card">
 
-      <Card sx={{ mx: 2, height: 300 }} className="card">
+      <Card sx={{ mx: 2, height: 300 }} className="card_login">
         <CardContent>
           <form onSubmit={formik.handleSubmit} className='loginform'>
             <h2>LOGIN</h2>
@@ -285,8 +287,8 @@ function Signin() {
     navigate("/login");
   };
   return (
-    <div className="login-card">
-      <Card sx={{ mx: 2, height: 350 }} className="card">
+    <div className="login_card">
+      <Card sx={{ mx: 2, minHeight: 350 }} className="card_login">
         <form onSubmit={formik.handleSubmit} className='loginform'>
           <h2>SIGNUP</h2>
           <div className='loginfield'>

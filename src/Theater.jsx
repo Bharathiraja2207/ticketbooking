@@ -18,7 +18,7 @@ export function MovieDetails({ movieList }) {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
   useEffect(() => {
-    fetch(`https://bookmyshow-backend.vercel.app/moviesid/${id}`)
+    fetch(`https://ticketbooking-backend-peach.vercel.app/moviesid/${id}`)
       .then((data) => data.json())
       .then((mvs) => setMovie(mvs));
   }, [id]);
@@ -48,7 +48,7 @@ export function MovieDetails({ movieList }) {
 export function MovieList({ movieList, setMovieList }) {
   const [search, setsearch] = useState("");
   useEffect(() => {
-    fetch("http://localhost:27023/moviesid")
+    fetch("https://ticketbooking-backend-peach.vercel.app/moviesid")
       .then((data) => data.json())
       .then((mvs) => setMovieList(mvs));
   }, []);
@@ -102,10 +102,7 @@ function Movies({ movie, id, keys }) {
   );
 }
 export function Theater() {
-  const showtime = [{ "id": "1", "theatername": "pss multiplex", "show1": "09:00 am", "show2": "09:00 pm" },
-  { "id": "2", "theatername": "bharathi multiplex", "show1": "09:00 am", "show2": "09:00 pm" },
-  { "id": "3", "theatername": "bhagavath multiplex", "show1": "09:00 am", "show2": "09:00 pm" },
-  { "id": "4", "theatername": "fathima multiplex", "show1": "09:00 am", "show2": "09:00 pm" }];
+  const showtime = [{ "id": "1", "theatername": "pss multiplex", "show1": "09:00 am", "show2": "09:00 pm" }];
   return (
     <div className='show'>
       {showtime.map((mv) => <Showtime key={mv.id} show={mv} id={mv.id} />)}
@@ -118,7 +115,7 @@ function Showtime({ show }) {
     <div>
       <h2>{show.theatername}</h2>
       <Button onClick={() => navigate("/seats")} color="inherit" variant='contained'>{show.show1}</Button>
-      <Button onClick={() => navigate("/seats")} color="inherit" variant='contained'>{show.show2}</Button>
+      <Button onClick={() => navigate("/seats2")} color="inherit" variant='contained'>{show.show2}</Button>
     </div>
   );
 }
