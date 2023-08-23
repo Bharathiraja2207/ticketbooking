@@ -44,11 +44,26 @@ export default function App() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <Button onClick={() => navigate("/")} color="inherit">Home</Button>
+            <div className='button_nav'>
+              <div>
+              <Button onClick={() => navigate("/")} color="inherit">Home</Button>
             <Button onClick={() => navigate("/movies")} color="inherit">Movies</Button>
             <Button onClick={() => navigate("/addmovies")} color="inherit">Add Movies </Button>
             <Button onClick={() => navigate("/add-theatre")} color="inherit">Add Theatre</Button>
-            <Button onClick={handleClick} color="inherit">LOGOUT</Button>
+              </div>
+              <div>
+            {
+        localStorage.getItem("token") == null ?
+          (<Button sx={{ m: 1 }} variant="outlined" color="inherit" onClick={() => navigate("/login")}>Login</Button>
+          ) : (
+            <Button onClick={handleClick} variant="outlined" color="inherit">LOGOUT</Button>
+          )}
+           
+            </div>
+
+            </div>
+           
+           
           </Toolbar>
         </AppBar>
       </Box>

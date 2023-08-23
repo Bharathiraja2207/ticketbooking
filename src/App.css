@@ -1,7 +1,12 @@
 body {
   margin: 0px
 }
-
+.button_nav{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
 .movie-container {
   width: 340px;
 
